@@ -1,0 +1,8 @@
+<h1>{{ request.user.username }}'s Profile</h1>
+
+<p><strong>Email:</strong> {{ request.user.email }}</p>
+<p><strong>Bio:</strong> {{ profile.bio }}</p>
+<p><strong>Location:</strong> {{ profile.location }}</p>
+<p><strong>Interests:</strong> {{ profile.interests }}</p>
+
+<a href="/dashboard/">Back to Dashboard</a>

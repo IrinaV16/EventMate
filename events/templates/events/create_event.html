@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="center-page">
+
+    <div class="auth-card">
+
+        <h1>Create Event</h1>
+        <p>Plan an activity and find people to join.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Create Event
+            </button>
+        </form>
+
+        <a href="/dashboard/" class="link">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

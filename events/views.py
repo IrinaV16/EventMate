@@ -1,0 +1,53 @@
+from django.shortcuts import render, redirect
+from .forms import EventForm
+from .models import Event
+from applications.models import Application
+
+
+def create_event_view(request):
+
+    if request.method == "POST":
+
+        form = EventForm(request.POST)
+
+        if form.is_valid():
+
+            event = form.save(commit=False)
+            event.organizer = request.user
+            event.save()
+
+            return redirect("/dashboard/")
+
+    else:
+
+        form = EventForm()
+
+    return render(
+        request,
+        "events/create_event.html",
+        {
+            "form": form
+        }
+    )
+
+def events_list_view(request):
+    events = Event.objects.all().order_by("-created_at")
+
+    return render(request, "events/events_list.html", {
+        "events": events
+    })
+
+def event_details_view(request, event_id):
+    event = Event.objects.get(id=event_id)
+
+    user_application = None
+    if request.user.is_authenticated:
+        user_application = Application.objects.filter(
+            event=event,
+            applicant=request.user
+        ).first()
+
+    return render(request, "events/event_details.html", {
+        "event": event,
+        "user_application": user_application,
+    })

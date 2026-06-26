@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-container">
+
+    <div class="event-card">
+
+        <h1>{{ event.title }}</h1>
+
+        <p>
+            <strong>Description:</strong><br>
+            {{ event.description }}
+        </p>
+
+        <p>
+            <strong>Category:</strong>
+            {{ event.get_category_display }}
+        </p>
+
+        <p>
+            <strong>Location:</strong>
+            {{ event.location }}
+        </p>
+
+        <p>
+            <strong>Date:</strong>
+            {{ event.date_time }}
+        </p>
+
+        <p>
+            <strong>Maximum participants:</strong>
+            {{ event.max_participants }}
+        </p>
+
+        <p>
+            <strong>Organizer:</strong>
+            {{ event.organizer.username }}
+        </p>
+
+        <p>
+            <strong>Adults only:</strong>
+
+            {% if event.is_adults_only %}
+                Yes
+            {% else %}
+                No
+            {% endif %}
+        </p>
+
+        {% if request.user == event.organizer %}
+            <p><strong>You are the organizer of this event.</strong></p>
+        {% elif user_application %}
+            <p><strong>Your application status:</strong> {{ user_application.get_status_display }}</p>
+        {% else %}
+            <a href="/applications/apply/{{ event.id }}/" class="btn btn-primary">
+                Apply
+            </a>
+        {% endif %}
+
+        <a href="/events/" class="btn btn-outline">
+            Back
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
