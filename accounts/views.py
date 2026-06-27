@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Profile
 from events.models import Event
+from .forms import ProfileForm
 
 def home(request):
     return render(request, "accounts/home.html")
@@ -92,4 +93,28 @@ def profile_view(request):
 
     return render(request, "accounts/profile.html", {
         "profile": profile
+    })
+
+def edit_profile_view(request):
+
+    profile, created = Profile.objects.get_or_create(
+        user=request.user
+    )
+
+    if request.method == "POST":
+        form = ProfileForm(
+            request.POST,
+            request.FILES,
+            instance=profile
+        )
+
+        if form.is_valid():
+            form.save()
+            return redirect("/profile/")
+
+    else:
+        form = ProfileForm(instance=profile)
+
+    return render(request, "accounts/edit_profile.html", {
+        "form": form
     })
