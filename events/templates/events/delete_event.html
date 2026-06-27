@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="center-page">
+
+    <div class="auth-card">
+
+        <h1>Delete Event</h1>
+
+        <p>
+            Are you sure you want to delete
+            <strong>"{{ event.title }}"</strong>?
+        </p>
+
+        <form method="POST" class="button-group">
+
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-danger">
+                Yes, Delete
+            </button>
+
+            <a href="/events/{{ event.id }}/" class="btn btn-outline">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

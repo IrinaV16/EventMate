@@ -101,6 +101,8 @@
         <div class="nav-links">
             <a href="/dashboard/">Dashboard</a>
             <a href="/events/">Events</a>
+            <a href="/events/my/">My Events</a>
+            <a href="/applications/my/">My Applications</a>
             <a href="/profile/">Profile</a>
             <a href="/logout/">Logout</a>
         </div>
@@ -116,7 +118,15 @@
             </a>
         </div>
 
-        <h2 class="section-title">Upcoming Events</h2>
+        <div class="section-header">
+
+            <h2 class="section-title">Upcoming Events</h2>
+
+            <a href="/events/" class="view-all">
+                View All →
+            </a>
+
+        </div>
 
         <div class="cards">
             {% for event in events %}
@@ -134,7 +144,15 @@
             {% endfor %}
         </div>
 
-        <h2 class="section-title">My Events</h2>
+        <div class="section-header">
+
+            <h2 class="section-title">My Events</h2>
+
+            <a href="/events/my/" class="view-all">
+                View All →
+            </a>
+
+        </div>
 
         <div class="cards">
             {% for event in my_events %}

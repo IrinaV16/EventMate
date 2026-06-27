@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-container">
+
+    <h1>My Applications</h1>
+
+    <div class="event-grid">
+
+        {% for application in applications %}
+
+            <div class="event-card">
+
+                <h3>{{ application.event.title }}</h3>
+
+                <p>
+                    <strong>Status:</strong>
+                    {{ application.get_status_display }}
+                </p>
+
+                <p>
+                    <strong>Organizer:</strong>
+                    {{ application.event.organizer.username }}
+                </p>
+
+                <p>
+                    <strong>Date:</strong>
+                    {{ application.event.date_time }}
+                </p>
+
+                <a href="/events/{{ application.event.id }}/"
+                   class="btn btn-outline">
+                    View Event
+                </a>
+
+            </div>
+
+        {% empty %}
+
+            <div class="event-card">
+
+                <h3>No applications yet</h3>
+
+                <p>
+                    You haven't applied for any events.
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

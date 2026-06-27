@@ -49,6 +49,66 @@
         </p>
 
         {% if request.user == event.organizer %}
+
+        <div class="action-buttons">
+
+            <a href="/events/{{ event.id }}/edit/" class="btn btn-primary">
+                Edit Event
+            </a>
+
+            <a href="/events/{{ event.id }}/delete/" class="btn btn-danger">
+                Delete Event
+            </a>
+
+        </div>
+
+        {% endif %}
+
+
+        {% if request.user == event.organizer %}
+
+            <hr>
+
+            <h2>Applications</h2>
+
+            {% for application in event.applications.all %}
+
+                <div class="card">
+
+                    <p>
+                        <strong>{{ application.applicant.username }}</strong>
+                    </p>
+
+                    <p>
+                        Status:
+                        {{ application.get_status_display }}
+                    </p>
+
+                    {% if application.status == "pending" %}
+
+                        <a href="/applications/accept/{{ application.id }}/"
+                            class="btn btn-primary">
+                            Accept
+                        </a>
+
+                        <a href="/applications/reject/{{ application.id }}/"
+                            class="btn btn-outline">
+                            Reject
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+            {% empty %}
+
+                <p>No applications yet.</p>
+
+            {% endfor %}
+
+        {% endif %}
+
+        {% if request.user == event.organizer %}
             <p><strong>You are the organizer of this event.</strong></p>
         {% elif user_application %}
             <p><strong>Your application status:</strong> {{ user_application.get_status_display }}</p>

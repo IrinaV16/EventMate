@@ -15,3 +15,36 @@ def apply_for_event(request, event_id):
         )
 
     return redirect(f"/events/{event.id}/")
+
+def accept_application(request, application_id):
+    application = Application.objects.get(id=application_id)
+
+    if application.event.organizer == request.user:
+        application.status = "accepted"
+        application.save()
+
+    return redirect(f"/events/{application.event.id}/")
+
+
+def reject_application(request, application_id):
+    application = Application.objects.get(id=application_id)
+
+    if application.event.organizer == request.user:
+        application.status = "rejected"
+        application.save()
+
+    return redirect(f"/events/{application.event.id}/")
+
+def my_applications_view(request):
+
+    applications = Application.objects.filter(
+        applicant=request.user
+    ).order_by("-created_at")
+
+    return render(
+        request,
+        "applications/my_applications.html",
+        {
+            "applications": applications
+        }
+    )

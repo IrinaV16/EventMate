@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="center-page">
+
+    <div class="auth-card">
+
+        <h1>Edit Event</h1>
+
+        <p>Update the details for "{{ event.title }}".</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit">
+                Save Changes
+            </button>
+        </form>
+
+        <a href="/events/{{ event.id }}/" class="link">
+            Back to Event
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
