@@ -109,18 +109,30 @@
         {% endif %}
 
         {% if request.user == event.organizer %}
+
             <p><strong>You are the organizer of this event.</strong></p>
+
+            <a href="/chat/event/{{ event.id }}/" class="btn btn-primary">
+                Open Chat
+            </a>
+
         {% elif user_application %}
+
             <p><strong>Your application status:</strong> {{ user_application.get_status_display }}</p>
+
+            {% if user_application.status == "accepted" %}
+                <a href="/chat/event/{{ event.id }}/" class="btn btn-primary">
+                    Open Chat
+                </a>
+            {% endif %}
+
         {% else %}
+
             <a href="/applications/apply/{{ event.id }}/" class="btn btn-primary">
                 Apply
             </a>
-        {% endif %}
 
-        <a href="/events/" class="btn btn-outline">
-            Back
-        </a>
+        {% endif %}
 
     </div>
 
