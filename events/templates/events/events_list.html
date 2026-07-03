@@ -9,6 +9,30 @@
         <a href="/events/create/" class="btn btn-primary">Create Event</a>
     </div>
 
+    <form method="GET" class="filter-form">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search by title..."
+            value="{{ search_query|default:'' }}">
+
+        <select name="category">
+            <option value="">All categories</option>
+
+            {% for value, label in categories %}
+                <option value="{{ value }}" {% if category == value %}selected{% endif %}>
+                    {{ label }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn btn-primary">
+            Search
+        </button>
+
+    </form>
+
     <div class="event-grid">
 
         {% for event in events %}

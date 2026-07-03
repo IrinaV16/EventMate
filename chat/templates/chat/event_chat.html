@@ -20,7 +20,11 @@
             {% endif %}
 
                     <div class="chat-bubble">
-                        <strong>{{ message.sender.username }}</strong>
+                        <strong>
+                            <a href="/profile/{{ message.sender.id }}/">
+                                {{ message.sender.username }}
+                            </a>
+                        </strong>
                         <p>{{ message.message }}</p>
                         <small>{{ message.created_at|date:"H:i" }}</small>
                     </div>

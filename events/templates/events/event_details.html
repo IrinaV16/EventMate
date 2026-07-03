@@ -23,6 +23,55 @@
             {{ event.location }}
         </p>
 
+        <a
+            href="https://www.openstreetmap.org/search?query={{ event.location|urlencode }}"
+            target="_blank"
+            class="btn btn-outline"
+        >
+            🗺 View on OpenStreetMap
+        </a>
+
+        <hr>
+
+        <h2>🌤 Weather Forecast</h2>
+
+        {% if weather %}
+
+            <div class="weather-card">
+
+                <p>
+                    <strong>Date:</strong>
+                    {{ weather.date }}
+                </p>
+
+                <p>
+                    <strong>Temperature:</strong>
+                    {{ weather.min_temp }}°C – {{ weather.max_temp }}°C
+                </p>
+
+                <p>
+                    <strong>Wind:</strong>
+                    {{ weather.wind_speed }} km/h
+                </p>
+
+            </div>
+
+        {% else %}
+
+            <div class="weather-card">
+
+                <p><strong>Weather forecast is not available yet.</strong></p>
+
+                <p>
+                    Forecast becomes available about 16 days before the event.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+        
+
         <p>
             <strong>Date:</strong>
             {{ event.date_time }}
@@ -34,8 +83,16 @@
         </p>
 
         <p>
+            <strong>Accepted participants:</strong>
+            {{ accepted_count }} / {{ event.max_participants }}
+        </p>
+
+        <p>
             <strong>Organizer:</strong>
-            {{ event.organizer.username }}
+
+            <a href="/profile/{{ event.organizer.id }}/">
+                {{ event.organizer.username }}
+            </a>
         </p>
 
         <p>
@@ -76,7 +133,11 @@
                 <div class="card">
 
                     <p>
-                        <strong>{{ application.applicant.username }}</strong>
+                        <strong>
+                            <a href="/profile/{{ application.applicant.id }}/">
+                                {{ application.applicant.username }}
+                            </a>
+                        </strong>
                     </p>
 
                     <p>
@@ -108,6 +169,24 @@
 
         {% endif %}
 
+        <hr>
+
+        <h2>Reviews</h2>
+
+        {% for review in event.reviews.all %}
+            <div class="card">
+                <strong>
+                    <a href="/profile/{{ review.reviewer.id }}/">
+                        {{ review.reviewer.username }}
+                    </a>
+                </strong>
+                <p><strong>Rating:</strong> {{ review.rating }} / 5</p>
+                <p>{{ review.comment }}</p>
+            </div>
+        {% empty %}
+            <p>No reviews yet.</p>
+        {% endfor %}
+
         {% if request.user == event.organizer %}
 
             <p><strong>You are the organizer of this event.</strong></p>
@@ -124,13 +203,28 @@
                 <a href="/chat/event/{{ event.id }}/" class="btn btn-primary">
                     Open Chat
                 </a>
+
+                {% if can_review %}
+                    <a href="/reviews/leave/{{ event.id }}/" class="btn btn-outline">
+                        Leave Review
+                    </a>
+                {% endif %}
+
             {% endif %}
 
         {% else %}
 
-            <a href="/applications/apply/{{ event.id }}/" class="btn btn-primary">
-                Apply
-            </a>
+            {% if is_full %}
+
+                <p><strong>This event is full.</strong></p>
+
+            {% else %}
+
+                <a href="/applications/apply/{{ event.id }}/" class="btn btn-primary">
+                    Apply
+                </a>
+
+            {% endif %}
 
         {% endif %}
 

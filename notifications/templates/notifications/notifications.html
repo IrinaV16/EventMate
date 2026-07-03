@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-container">
+
+    <div class="page-header">
+        <h1>Notifications</h1>
+    </div>
+
+    {% for notification in notifications %}
+
+        <div class="notification-card">
+
+            <p>{{ notification.message }}</p>
+
+            <small>
+                {{ notification.created_at|date:"d M Y, H:i" }}
+            </small>
+
+        </div>
+
+    {% empty %}
+
+        <div class="event-card">
+
+            <h3>No notifications yet</h3>
+
+            <p>
+                You will see updates about your events here.
+            </p>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

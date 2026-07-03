@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-container">
+
+    <div class="page-header">
+        <h1>Friends</h1>
+    </div>
+
+    <h2>Pending Requests</h2>
+
+    {% for friend_request in pending_requests %}
+
+        <div class="event-card">
+            <p>
+                <strong>{{ friend_request.sender.username }}</strong>
+                sent you a friend request.
+            </p>
+
+            <a href="/friends/accept/{{ friend_request.id }}/" class="btn btn-primary">
+                Accept
+            </a>
+
+            <a href="/friends/reject/{{ friend_request.id }}/" class="btn btn-outline">
+                Reject
+            </a>
+        </div>
+
+    {% empty %}
+
+        <p>No pending friend requests.</p>
+
+    {% endfor %}
+
+    <h2>My Friends</h2>
+
+    {% for friendship in friends %}
+
+        <div class="event-card">
+
+            {% if friendship.sender == request.user %}
+                <p><strong>{{ friendship.receiver.username }}</strong></p>
+                <a href="/profile/{{ friendship.receiver.id }}/" class="btn btn-outline">
+                    View Profile
+                </a>
+            {% else %}
+                <p><strong>{{ friendship.sender.username }}</strong></p>
+                <a href="/profile/{{ friendship.sender.id }}/" class="btn btn-outline">
+                    View Profile
+                </a>
+            {% endif %}
+
+        </div>
+
+    {% empty %}
+
+        <p>You don't have friends yet.</p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

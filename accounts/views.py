@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Profile
 from events.models import Event
 from .forms import ProfileForm
+from friends.models import FriendRequest
 
 def home(request):
     return render(request, "accounts/home.html")
@@ -117,4 +118,37 @@ def edit_profile_view(request):
 
     return render(request, "accounts/edit_profile.html", {
         "form": form
+    })
+
+def user_profile_view(request, user_id):
+
+    user = User.objects.get(id=user_id)
+
+    if user == request.user:
+        return redirect("/profile/")
+
+    profile, created = Profile.objects.get_or_create(
+        user=user
+    )
+
+    friend_request = FriendRequest.objects.filter(
+        sender=request.user,
+        receiver=user
+    ).first()
+
+    are_friends = FriendRequest.objects.filter(
+        sender=request.user,
+        receiver=user,
+        status="accepted"
+    ).exists() or FriendRequest.objects.filter(
+        sender=user,
+        receiver=request.user,
+        status="accepted"
+    ).exists()
+
+    return render(request, "accounts/user_profile.html", {
+        "profile": profile,
+        "profile_user": user,
+        "friend_request": friend_request,
+        "are_friends": are_friends,
     })

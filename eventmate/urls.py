@@ -26,6 +26,9 @@ urlpatterns = [
     path("events/", include("events.urls")),
     path("applications/", include("applications.urls")),
     path("chat/", include("chat.urls")),
+    path("reviews/", include("reviews.urls")),
+    path("notifications/", include("notifications.urls")),
+    path("friends/", include("friends.urls")),
 ]
 
 if settings.DEBUG:

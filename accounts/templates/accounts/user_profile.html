@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="center-page">
+
+    <div class="auth-card">
+
+        <h1>{{ profile_user.username }}'s Profile</h1>
+
+        {% if profile.profile_picture %}
+            <img src="{{ profile.profile_picture.url }}"
+                 alt="Profile Picture"
+                 class="profile-picture">
+        {% endif %}
+
+        <p><strong>Email:</strong> {{ profile_user.email }}</p>
+        <p><strong>Bio:</strong> {{ profile.bio|default:"No bio yet." }}</p>
+        <p><strong>Location:</strong> {{ profile.location|default:"No location yet." }}</p>
+        <p><strong>Interests:</strong> {{ profile.interests|default:"No interests yet." }}</p>
+
+        {% if request.user == profile_user %}
+
+            <a href="/profile/edit/" class="btn btn-primary">
+                Edit Profile
+            </a>
+
+        {% elif are_friends %}
+
+            <p><strong>You are friends.</strong></p>
+
+        {% elif friend_request %}
+
+            <p><strong>Friend request sent.</strong></p>
+
+        {% else %}
+
+            <a href="/friends/send/{{ profile_user.id }}/" class="btn btn-primary">
+                Add Friend
+            </a>
+
+        {% endif %}
+
+        <a href="/dashboard/" class="link">
+            Back to Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}
