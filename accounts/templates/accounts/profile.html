@@ -19,11 +19,11 @@
         <p><strong>Location:</strong> {{ profile.location|default:"No location yet." }}</p>
         <p><strong>Interests:</strong> {{ profile.interests|default:"No interests yet." }}</p>
 
-        <a href="/profile/edit/" class="btn btn-primary">
-            Edit Profile    
+        <a href="{% url 'edit_profile' %}" class="btn btn-primary">
+            Edit Profile
         </a>
 
-        <a href="/dashboard/" class="link">
+        <a href="{% url 'dashboard' %}" class="link">
             Back to Dashboard
         </a>
 

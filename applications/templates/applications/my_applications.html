@@ -29,8 +29,8 @@
                     {{ application.event.date_time }}
                 </p>
 
-                <a href="/events/{{ application.event.id }}/"
-                   class="btn btn-outline">
+                <a href="{% url 'event_details' application.event.id %}"
+                    class="btn btn-outline">
                     View Event
                 </a>
 

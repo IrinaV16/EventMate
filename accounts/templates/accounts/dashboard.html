@@ -99,14 +99,14 @@
         <div class="logo">EventMate</div>
 
         <div class="nav-links">
-            <a href="/dashboard/">Dashboard</a>
-            <a href="/events/">Events</a>
-            <a href="/events/my/">My Events</a>
-            <a href="/applications/my/">My Applications</a>
-            <a href="/friends/">Friends</a>
-            <a href="/notifications/">Notifications</a>
-            <a href="/profile/">Profile</a>
-            <a href="/logout/">Logout</a>
+            <a href="{% url 'dashboard' %}">Dashboard</a>
+            <a href="{% url 'events_list' %}">Events</a>
+            <a href="{% url 'my_events' %}">My Events</a>
+            <a href="{% url 'my_applications' %}">My Applications</a>
+            <a href="{% url 'friends' %}">Friends</a>
+            <a href="{% url 'notifications' %}">Notifications</a>
+            <a href="{% url 'profile' %}">Profile</a>
+            <a href="{% url 'logout' %}">Logout</a>
         </div>
     </div>
 
@@ -115,7 +115,7 @@
         <div class="welcome-card">
             <h1>Welcome, {{ request.user.username }}!</h1>
             <p>Find people for your next event or activity.</p>
-            <a href="/events/create/" class="create-btn">
+            <a href="{% url 'create_event' %}" class="create-btn">
                 Create Event
             </a>
         </div>
@@ -124,7 +124,7 @@
 
             <h2 class="section-title">Upcoming Events</h2>
 
-            <a href="/events/" class="view-all">
+            <a href="{% url 'events_list' %}" class="view-all">
                 View All →
             </a>
 
@@ -136,7 +136,9 @@
                     <h3>{{ event.title }}</h3>
                     <p><strong>Location:</strong> {{ event.location }}</p>
                     <p><strong>Date:</strong> {{ event.date_time }}</p>
-                    <a href="/events/{{ event.id }}/" class="btn btn-outline">View Details</a>
+                    <a href="{% url 'event_details' event.id %}" class="btn btn-outline">
+                        View Details
+                    </a>
                 </div>
             {% empty %}
                 <div class="card">
@@ -149,8 +151,7 @@
         <div class="section-header">
 
             <h2 class="section-title">My Events</h2>
-
-            <a href="/events/my/" class="view-all">
+            <a href="{% url 'my_events' %}" class="view-all">
                 View All →
             </a>
 
@@ -162,7 +163,9 @@
                     <h3>{{ event.title }}</h3>
                     <p><strong>Location:</strong> {{ event.location }}</p>
                     <p><strong>Date:</strong> {{ event.date_time }}</p>
-                    <a href="/events/{{ event.id }}/" class="btn btn-outline">View Details</a>
+                    <a href="{% url 'event_details' event.id %}" class="btn btn-outline">
+                        View Details
+                    </a>
                 </div>
             {% empty %}
                 <div class="card">

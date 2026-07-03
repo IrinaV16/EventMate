@@ -1,0 +1,160 @@
+Date : 2026-07-04 01:32:19
+Directory : c:\Users\irina\Desktop\EventMate
+Total : 94 files,  2758 codes, 81 comments, 929 blanks, all 3768 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |         74 |      1,655 |         77 |        508 |      2,240 |
+| HTML     |         19 |        817 |          0 |        364 |      1,181 |
+| PostCSS  |          1 |        286 |          4 |         57 |        347 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                         |         94 |      2,758 |         81 |        929 |      3,768 |
+| . (Files)                                                                                 |          1 |         15 |          3 |          5 |         23 |
+| accounts                                                                                  |         19 |        841 |          6 |        250 |      1,097 |
+| accounts (Files)                                                                          |          8 |        187 |          1 |         64 |        252 |
+| accounts\migrations                                                                       |          2 |         38 |          1 |          8 |         47 |
+| accounts\static                                                                           |          1 |        286 |          4 |         57 |        347 |
+| accounts\static\css                                                                       |          1 |        286 |          4 |         57 |        347 |
+| accounts\templates                                                                        |          8 |        330 |          0 |        121 |        451 |
+| accounts\templates (Files)                                                                |          1 |         13 |          0 |          3 |         16 |
+| accounts\templates\accounts                                                               |          7 |        317 |          0 |        118 |        435 |
+| applications                                                                              |         10 |        278 |          2 |         88 |        368 |
+| applications (Files)                                                                      |          7 |        185 |          1 |         59 |        245 |
+| applications\migrations                                                                   |          2 |         57 |          1 |          8 |         66 |
+| applications\templates                                                                    |          1 |         36 |          0 |         21 |         57 |
+| applications\templates\applications                                                       |          1 |         36 |          0 |         21 |         57 |
+| chat                                                                                      |         12 |        257 |          2 |         84 |        343 |
+| chat (Files)                                                                              |          9 |        143 |          1 |         50 |        194 |
+| chat\migrations                                                                           |          2 |         42 |          1 |          8 |         51 |
+| chat\templates                                                                            |          1 |         72 |          0 |         26 |         98 |
+| chat\templates\chat                                                                       |          1 |         72 |          0 |         26 |         98 |
+| eventmate                                                                                 |          5 |        114 |         60 |         52 |        226 |
+| events                                                                                    |         16 |        642 |          2 |        250 |        894 |
+| events (Files)                                                                            |          8 |        293 |          1 |         95 |        389 |
+| events\migrations                                                                         |          2 |         55 |          1 |          8 |         64 |
+| events\templates                                                                          |          6 |        294 |          0 |        147 |        441 |
+| events\templates\events                                                                   |          6 |        294 |          0 |        147 |        441 |
+| friends                                                                                   |         10 |        255 |          2 |         81 |        338 |
+| friends (Files)                                                                           |          7 |        156 |          1 |         52 |        209 |
+| friends\migrations                                                                        |          2 |         56 |          1 |          8 |         65 |
+| friends\templates                                                                         |          1 |         43 |          0 |         21 |         64 |
+| friends\templates\friends                                                                 |          1 |         43 |          0 |         21 |         64 |
+| notifications                                                                             |         10 |        106 |          2 |         46 |        154 |
+| notifications (Files)                                                                     |          7 |         48 |          1 |         22 |         71 |
+| notifications\migrations                                                                  |          2 |         35 |          1 |          8 |         44 |
+| notifications\templates                                                                   |          1 |         23 |          0 |         16 |         39 |
+| notifications\templates\notifications                                                     |          1 |         23 |          0 |         16 |         39 |
+| reviews                                                                                   |         11 |        250 |          2 |         73 |        325 |
+| reviews (Files)                                                                           |          8 |        176 |          1 |         53 |        230 |
+| reviews\migrations                                                                        |          2 |         55 |          1 |          8 |         64 |
+| reviews\templates                                                                         |          1 |         19 |          0 |         12 |         31 |
+| reviews\templates\reviews                                                                 |          1 |         19 |          0 |         12 |         31 |
++-------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                  | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\irina\Desktop\EventMate\accounts\__init__.py                                     | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\accounts\admin.py                                        | Python   |          1 |          1 |          2 |          4 |
+| c:\Users\irina\Desktop\EventMate\accounts\apps.py                                         | Python   |          3 |          0 |          3 |          6 |
+| c:\Users\irina\Desktop\EventMate\accounts\forms.py                                        | Python   |         11 |          0 |          3 |         14 |
+| c:\Users\irina\Desktop\EventMate\accounts\migrations\0001_initial.py                      | Python   |         38 |          1 |          7 |         46 |
+| c:\Users\irina\Desktop\EventMate\accounts\migrations\__init__.py                          | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\accounts\models.py                                       | Python   |         14 |          0 |          6 |         20 |
+| c:\Users\irina\Desktop\EventMate\accounts\static\css\style.css                            | PostCSS  |        286 |          4 |         57 |        347 |
+| c:\Users\irina\Desktop\EventMate\accounts\templates\accounts\dashboard.html               | HTML     |        152 |          0 |         29 |        181 |
+| c:\Users\irina\Desktop\EventMate\accounts\templates\accounts\edit_profile.html            | HTML     |         18 |          0 |         13 |         31 |
+| c:\Users\irina\Desktop\EventMate\accounts\templates\accounts\home.html                    | HTML     |         17 |          0 |          8 |         25 |
+| c:\Users\irina\Desktop\EventMate\accounts\templates\accounts\login.html                   | HTML     |         29 |          0 |         16 |         45 |
+| c:\Users\irina\Desktop\EventMate\accounts\templates\accounts\profile.html                 | HTML     |         23 |          0 |         11 |         34 |
+| c:\Users\irina\Desktop\EventMate\accounts\templates\accounts\register.html                | HTML     |         36 |          0 |         17 |         53 |
+| c:\Users\irina\Desktop\EventMate\accounts\templates\accounts\user_profile.html            | HTML     |         42 |          0 |         24 |         66 |
+| c:\Users\irina\Desktop\EventMate\accounts\templates\base.html                             | HTML     |         13 |          0 |          3 |         16 |
+| c:\Users\irina\Desktop\EventMate\accounts\tests.py                                        | Python   |         19 |          0 |          9 |         28 |
+| c:\Users\irina\Desktop\EventMate\accounts\urls.py                                         | Python   |         12 |          0 |          1 |         13 |
+| c:\Users\irina\Desktop\EventMate\accounts\views.py                                        | Python   |        127 |          0 |         39 |        166 |
+| c:\Users\irina\Desktop\EventMate\applications\__init__.py                                 | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\applications\admin.py                                    | Python   |          1 |          1 |          2 |          4 |
+| c:\Users\irina\Desktop\EventMate\applications\apps.py                                     | Python   |          3 |          0 |          3 |          6 |
+| c:\Users\irina\Desktop\EventMate\applications\migrations\0001_initial.py                  | Python   |         57 |          1 |          7 |         65 |
+| c:\Users\irina\Desktop\EventMate\applications\migrations\__init__.py                      | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\applications\models.py                                   | Python   |         29 |          0 |          9 |         38 |
+| c:\Users\irina\Desktop\EventMate\applications\templates\applications\my_applications.html | HTML     |         36 |          0 |         21 |         57 |
+| c:\Users\irina\Desktop\EventMate\applications\tests.py                                    | Python   |         83 |          0 |         25 |        108 |
+| c:\Users\irina\Desktop\EventMate\applications\urls.py                                     | Python   |          8 |          0 |          1 |          9 |
+| c:\Users\irina\Desktop\EventMate\applications\views.py                                    | Python   |         61 |          0 |         18 |         79 |
+| c:\Users\irina\Desktop\EventMate\chat\__init__.py                                         | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\chat\admin.py                                            | Python   |          1 |          1 |          2 |          4 |
+| c:\Users\irina\Desktop\EventMate\chat\apps.py                                             | Python   |          3 |          0 |          3 |          6 |
+| c:\Users\irina\Desktop\EventMate\chat\consumers.py                                        | Python   |         59 |          0 |         21 |         80 |
+| c:\Users\irina\Desktop\EventMate\chat\migrations\0001_initial.py                          | Python   |         42 |          1 |          7 |         50 |
+| c:\Users\irina\Desktop\EventMate\chat\migrations\__init__.py                              | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\chat\models.py                                           | Python   |         17 |          0 |          7 |         24 |
+| c:\Users\irina\Desktop\EventMate\chat\routing.py                                          | Python   |          5 |          0 |          1 |          6 |
+| c:\Users\irina\Desktop\EventMate\chat\templates\chat\event_chat.html                      | HTML     |         72 |          0 |         26 |         98 |
+| c:\Users\irina\Desktop\EventMate\chat\tests.py                                            | Python   |         30 |          0 |          8 |         38 |
+| c:\Users\irina\Desktop\EventMate\chat\urls.py                                             | Python   |          5 |          0 |          1 |          6 |
+| c:\Users\irina\Desktop\EventMate\chat\views.py                                            | Python   |         23 |          0 |          6 |         29 |
+| c:\Users\irina\Desktop\EventMate\eventmate\__init__.py                                    | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\eventmate\asgi.py                                        | Python   |         14 |          8 |          5 |         27 |
+| c:\Users\irina\Desktop\EventMate\eventmate\settings.py                                    | Python   |         80 |         28 |         37 |        145 |
+| c:\Users\irina\Desktop\EventMate\eventmate\urls.py                                        | Python   |         16 |         16 |          4 |         36 |
+| c:\Users\irina\Desktop\EventMate\eventmate\wsgi.py                                        | Python   |          4 |          8 |          5 |         17 |
+| c:\Users\irina\Desktop\EventMate\events\__init__.py                                       | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\events\admin.py                                          | Python   |          1 |          1 |          2 |          4 |
+| c:\Users\irina\Desktop\EventMate\events\apps.py                                           | Python   |          3 |          0 |          3 |          6 |
+| c:\Users\irina\Desktop\EventMate\events\forms.py                                          | Python   |         36 |          0 |          9 |         45 |
+| c:\Users\irina\Desktop\EventMate\events\migrations\0001_initial.py                        | Python   |         55 |          1 |          7 |         63 |
+| c:\Users\irina\Desktop\EventMate\events\migrations\__init__.py                            | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\events\models.py                                         | Python   |         31 |          0 |          6 |         37 |
+| c:\Users\irina\Desktop\EventMate\events\templates\events\create_event.html                | HTML     |         19 |          0 |         11 |         30 |
+| c:\Users\irina\Desktop\EventMate\events\templates\events\delete_event.html                | HTML     |         21 |          0 |         13 |         34 |
+| c:\Users\irina\Desktop\EventMate\events\templates\events\edit_event.html                  | HTML     |         19 |          0 |         12 |         31 |
+| c:\Users\irina\Desktop\EventMate\events\templates\events\event_details.html               | HTML     |        162 |          0 |         77 |        239 |
+| c:\Users\irina\Desktop\EventMate\events\templates\events\events_list.html                 | HTML     |         46 |          0 |         20 |         66 |
+| c:\Users\irina\Desktop\EventMate\events\templates\events\my_events.html                   | HTML     |         27 |          0 |         14 |         41 |
+| c:\Users\irina\Desktop\EventMate\events\tests.py                                          | Python   |         59 |          0 |         21 |         80 |
+| c:\Users\irina\Desktop\EventMate\events\urls.py                                           | Python   |         10 |          0 |          1 |         11 |
+| c:\Users\irina\Desktop\EventMate\events\views.py                                          | Python   |        153 |          0 |         52 |        205 |
+| c:\Users\irina\Desktop\EventMate\friends\__init__.py                                      | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\friends\admin.py                                         | Python   |          1 |          1 |          2 |          4 |
+| c:\Users\irina\Desktop\EventMate\friends\apps.py                                          | Python   |          3 |          0 |          3 |          6 |
+| c:\Users\irina\Desktop\EventMate\friends\migrations\0001_initial.py                       | Python   |         56 |          1 |          7 |         64 |
+| c:\Users\irina\Desktop\EventMate\friends\migrations\__init__.py                           | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\friends\models.py                                        | Python   |         28 |          0 |          8 |         36 |
+| c:\Users\irina\Desktop\EventMate\friends\templates\friends\friends.html                   | HTML     |         43 |          0 |         21 |         64 |
+| c:\Users\irina\Desktop\EventMate\friends\tests.py                                         | Python   |         58 |          0 |         21 |         79 |
+| c:\Users\irina\Desktop\EventMate\friends\urls.py                                          | Python   |          8 |          0 |          1 |          9 |
+| c:\Users\irina\Desktop\EventMate\friends\views.py                                         | Python   |         58 |          0 |         16 |         74 |
+| c:\Users\irina\Desktop\EventMate\manage.py                                                | Python   |         15 |          3 |          5 |         23 |
+| c:\Users\irina\Desktop\EventMate\notifications\__init__.py                                | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\notifications\admin.py                                   | Python   |          1 |          1 |          2 |          4 |
+| c:\Users\irina\Desktop\EventMate\notifications\apps.py                                    | Python   |          3 |          0 |          3 |          6 |
+| c:\Users\irina\Desktop\EventMate\notifications\migrations\0001_initial.py                 | Python   |         35 |          1 |          7 |         43 |
+| c:\Users\irina\Desktop\EventMate\notifications\migrations\__init__.py                     | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\notifications\models.py                                  | Python   |         13 |          0 |          6 |         19 |
+| c:\Users\irina\Desktop\EventMate\notifications\templates\notifications\notifications.html | HTML     |         23 |          0 |         16 |         39 |
+| c:\Users\irina\Desktop\EventMate\notifications\tests.py                                   | Python   |         15 |          0 |          7 |         22 |
+| c:\Users\irina\Desktop\EventMate\notifications\urls.py                                    | Python   |          5 |          0 |          1 |          6 |
+| c:\Users\irina\Desktop\EventMate\notifications\views.py                                   | Python   |         11 |          0 |          2 |         13 |
+| c:\Users\irina\Desktop\EventMate\reviews\__init__.py                                      | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\reviews\admin.py                                         | Python   |          1 |          1 |          2 |          4 |
+| c:\Users\irina\Desktop\EventMate\reviews\apps.py                                          | Python   |          3 |          0 |          3 |          6 |
+| c:\Users\irina\Desktop\EventMate\reviews\forms.py                                         | Python   |         19 |          0 |          4 |         23 |
+| c:\Users\irina\Desktop\EventMate\reviews\migrations\0001_initial.py                       | Python   |         55 |          1 |          7 |         63 |
+| c:\Users\irina\Desktop\EventMate\reviews\migrations\__init__.py                           | Python   |          0 |          0 |          1 |          1 |
+| c:\Users\irina\Desktop\EventMate\reviews\models.py                                        | Python   |         26 |          0 |         10 |         36 |
+| c:\Users\irina\Desktop\EventMate\reviews\templates\reviews\leave_review.html              | HTML     |         19 |          0 |         12 |         31 |
+| c:\Users\irina\Desktop\EventMate\reviews\tests.py                                         | Python   |         78 |          0 |         18 |         96 |
+| c:\Users\irina\Desktop\EventMate\reviews\urls.py                                          | Python   |          5 |          0 |          1 |          6 |
+| c:\Users\irina\Desktop\EventMate\reviews\views.py                                         | Python   |         44 |          0 |         14 |         58 |
+| Total                                                                                     |          |      2,758 |         81 |        929 |      3,768 |
++-------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

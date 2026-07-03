@@ -6,7 +6,9 @@
 
     <div class="page-header">
         <h1>Chat: {{ event.title }}</h1>
-        <a href="/events/{{ event.id }}/" class="btn btn-outline">Back to Event</a>
+        <a href="{% url 'event_details' event.id %}" class="btn btn-outline">
+            Back to Event
+        </a>
     </div>
 
     <div id="chat-box" class="chat-box">
@@ -21,7 +23,7 @@
 
                     <div class="chat-bubble">
                         <strong>
-                            <a href="/profile/{{ message.sender.id }}/">
+                            <a href="{% url 'user_profile' message.sender.id %}">
                                 {{ message.sender.username }}
                             </a>
                         </strong>

@@ -18,11 +18,11 @@
                 sent you a friend request.
             </p>
 
-            <a href="/friends/accept/{{ friend_request.id }}/" class="btn btn-primary">
+            <a href="{% url 'accept_friend_request' friend_request.id %}" class="btn btn-primary">
                 Accept
             </a>
 
-            <a href="/friends/reject/{{ friend_request.id }}/" class="btn btn-outline">
+            <a href="{% url 'reject_friend_request' friend_request.id %}" class="btn btn-outline">
                 Reject
             </a>
         </div>
@@ -41,12 +41,12 @@
 
             {% if friendship.sender == request.user %}
                 <p><strong>{{ friendship.receiver.username }}</strong></p>
-                <a href="/profile/{{ friendship.receiver.id }}/" class="btn btn-outline">
+                <a href="{% url 'user_profile' friendship.receiver.id %}" class="btn btn-outline">
                     View Profile
                 </a>
             {% else %}
                 <p><strong>{{ friendship.sender.username }}</strong></p>
-                <a href="/profile/{{ friendship.sender.id }}/" class="btn btn-outline">
+                <a href="{% url 'user_profile' friendship.sender.id %}" class="btn btn-outline">
                     View Profile
                 </a>
             {% endif %}

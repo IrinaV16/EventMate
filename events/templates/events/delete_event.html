@@ -21,7 +21,7 @@
                 Yes, Delete
             </button>
 
-            <a href="/events/{{ event.id }}/" class="btn btn-outline">
+            <a href="{% url 'event_details' event.id %}" class="btn btn-outline">
                 Cancel
             </a>
 

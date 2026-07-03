@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EventForm
 from .models import Event
 from applications.models import Application
@@ -8,7 +8,7 @@ from django.utils import timezone
 from reviews.models import Review
 import requests
 
-
+@login_required
 def create_event_view(request):
 
     if request.method == "POST":
@@ -21,7 +21,7 @@ def create_event_view(request):
             event.organizer = request.user
             event.save()
 
-            return redirect("/dashboard/")
+            return redirect("dashboard")
 
     else:
 
@@ -35,7 +35,7 @@ def create_event_view(request):
         }
     )
 
-
+@login_required
 def events_list_view(request):
 
     events = Event.objects.all().order_by("-created_at")
@@ -109,8 +109,9 @@ def get_weather(location, event_date):
     except Exception:
         return None
 
+@login_required
 def event_details_view(request, event_id):
-    event = Event.objects.get(id=event_id)
+    event = get_object_or_404(Event, id=event_id)
 
     accepted_count = event.applications.filter(
         status="accepted"
@@ -137,6 +138,8 @@ def event_details_view(request, event_id):
 
     weather = get_weather(event.location, event.date_time)
 
+    event_has_ended = event.date_time <= timezone.now()
+
     return render(request, "events/event_details.html", {
         "event": event,
         "user_application": user_application,
@@ -144,6 +147,7 @@ def event_details_view(request, event_id):
         "is_full": is_full,
         "can_review": can_review,
         "weather": weather,
+        "event_has_ended": event_has_ended,
     })
 
 @login_required
@@ -161,19 +165,20 @@ def my_events_view(request):
         }
     )
 
+@login_required
 def edit_event_view(request, event_id):
 
-    event = Event.objects.get(id=event_id)
+    event = get_object_or_404(Event, id=event_id)
 
     if event.organizer != request.user:
-        return redirect(f"/events/{event.id}/")
+        return redirect("event_details", event_id=event.id)
 
     if request.method == "POST":
         form = EventForm(request.POST, instance=event)
 
         if form.is_valid():
             form.save()
-            return redirect(f"/events/{event.id}/")
+            return redirect("event_details", event_id=event.id)
 
     else:
         form = EventForm(instance=event)
@@ -183,16 +188,17 @@ def edit_event_view(request, event_id):
         "event": event
     })
 
+@login_required
 def delete_event_view(request, event_id):
 
-    event = Event.objects.get(id=event_id)
+    event = get_object_or_404(Event, id=event_id)
 
     if event.organizer != request.user:
-        return redirect(f"/events/{event.id}/")
+        return redirect("event_details", event_id=event.id)
 
     if request.method == "POST":
         event.delete()
-        return redirect("/events/my/")
+        return redirect("my_events")
 
     return render(request, "events/delete_event.html", {
         "event": event

@@ -6,7 +6,7 @@
 
     <div class="page-header">
         <h1>Events</h1>
-        <a href="/events/create/" class="btn btn-primary">Create Event</a>
+        <a href="{% url 'create_event' %}" class="btn btn-primary">Create Event</a>
     </div>
 
     <form method="GET" class="filter-form">
@@ -45,7 +45,7 @@
                 <p><strong>Date:</strong> {{ event.date_time }}</p>
                 <p><strong>Organizer:</strong> {{ event.organizer.username }}</p>
 
-                <a href="/events/{{ event.id }}/" class="btn btn-outline">
+                <a href="{% url 'event_details' event.id %}" class="btn btn-outline">
                     View Details
                 </a>
             </div>

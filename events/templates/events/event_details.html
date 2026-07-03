@@ -90,7 +90,7 @@
         <p>
             <strong>Organizer:</strong>
 
-            <a href="/profile/{{ event.organizer.id }}/">
+            <a href="{% url 'user_profile' event.organizer.id %}">
                 {{ event.organizer.username }}
             </a>
         </p>
@@ -109,11 +109,11 @@
 
         <div class="action-buttons">
 
-            <a href="/events/{{ event.id }}/edit/" class="btn btn-primary">
+            <a href="{% url 'edit_event' event.id %}" class="btn btn-primary">
                 Edit Event
             </a>
 
-            <a href="/events/{{ event.id }}/delete/" class="btn btn-danger">
+            <a href="{% url 'delete_event' event.id %}" class="btn btn-danger">
                 Delete Event
             </a>
 
@@ -134,7 +134,7 @@
 
                     <p>
                         <strong>
-                            <a href="/profile/{{ application.applicant.id }}/">
+                            <a href="{% url 'user_profile' application.applicant.id %}">
                                 {{ application.applicant.username }}
                             </a>
                         </strong>
@@ -147,12 +147,12 @@
 
                     {% if application.status == "pending" %}
 
-                        <a href="/applications/accept/{{ application.id }}/"
+                        <a href="{% url 'accept_application' application.id %}"
                             class="btn btn-primary">
                             Accept
                         </a>
 
-                        <a href="/applications/reject/{{ application.id }}/"
+                        <a href="{% url 'reject_application' application.id %}"
                             class="btn btn-outline">
                             Reject
                         </a>
@@ -176,7 +176,7 @@
         {% for review in event.reviews.all %}
             <div class="card">
                 <strong>
-                    <a href="/profile/{{ review.reviewer.id }}/">
+                    <a href="{% url 'user_profile' review.reviewer.id %}">
                         {{ review.reviewer.username }}
                     </a>
                 </strong>
@@ -191,7 +191,7 @@
 
             <p><strong>You are the organizer of this event.</strong></p>
 
-            <a href="/chat/event/{{ event.id }}/" class="btn btn-primary">
+            <a href="{% url 'event_chat' event.id %}" class="btn btn-primary">
                 Open Chat
             </a>
 
@@ -200,12 +200,12 @@
             <p><strong>Your application status:</strong> {{ user_application.get_status_display }}</p>
 
             {% if user_application.status == "accepted" %}
-                <a href="/chat/event/{{ event.id }}/" class="btn btn-primary">
+                <a href="{% url 'event_chat' event.id %}" class="btn btn-primary">
                     Open Chat
                 </a>
 
                 {% if can_review %}
-                    <a href="/reviews/leave/{{ event.id }}/" class="btn btn-outline">
+                    <a href="{% url 'leave_review' event.id %}" class="btn btn-outline">
                         Leave Review
                     </a>
                 {% endif %}
@@ -214,13 +214,17 @@
 
         {% else %}
 
-            {% if is_full %}
+            {% if event_has_ended %}
+
+                <p><strong>This event has already ended.</strong></p>
+
+            {% elif is_full %}
 
                 <p><strong>This event is full.</strong></p>
 
             {% else %}
 
-                <a href="/applications/apply/{{ event.id }}/" class="btn btn-primary">
+                <a href="{% url 'apply_for_event' event.id %}" class="btn btn-primary">
                     Apply
                 </a>
 

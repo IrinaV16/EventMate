@@ -21,7 +21,7 @@
 
         {% if request.user == profile_user %}
 
-            <a href="/profile/edit/" class="btn btn-primary">
+            <a href="{% url 'edit_profile' %}" class="btn btn-primary">
                 Edit Profile
             </a>
 
@@ -29,19 +29,33 @@
 
             <p><strong>You are friends.</strong></p>
 
-        {% elif friend_request %}
+        {% elif friend_request and friend_request.status == "pending" %}
 
             <p><strong>Friend request sent.</strong></p>
 
+        {% elif incoming_request %}
+
+            <p><strong>This user has already sent you a friend request.</strong></p>
+
+            <a href="{% url 'friends' %}" class="btn btn-primary">
+                Go to Friends
+            </a>
+
+        {% elif friend_request and friend_request.status == "rejected" %}
+
+            <a href="{% url 'send_friend_request' profile_user.id %}" class="btn btn-primary">
+                Add Friend
+            </a>
+
         {% else %}
 
-            <a href="/friends/send/{{ profile_user.id }}/" class="btn btn-primary">
+            <a href="{% url 'send_friend_request' profile_user.id %}" class="btn btn-primary">
                 Add Friend
             </a>
 
         {% endif %}
 
-        <a href="/dashboard/" class="link">
+        <a href="{% url 'dashboard' %}" class="link">
             Back to Dashboard
         </a>
 
