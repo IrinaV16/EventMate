@@ -68,9 +68,6 @@ The forecast is available for events taking place within the next 16 days.
 Every event includes a direct link to OpenStreetMap, allowing users to quickly view the event location.
 
 ---
-d tests covering the main functionality of the application.
-
----
 
 ## Author
 
