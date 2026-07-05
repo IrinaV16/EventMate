@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import timedelta
-
 from events.models import Event
 from .models import ChatMessage
 

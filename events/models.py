@@ -30,7 +30,6 @@ class Event(models.Model):
     date_time = models.DateTimeField()
     max_participants = models.PositiveIntegerField()
     is_adults_only = models.BooleanField(default=False)
-
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
